@@ -3,8 +3,8 @@ Gem::Specification.new do |s|
   s.platform    = Gem::Platform::RUBY
   s.name        = 'spree_artist_marketplace'
   s.version     = '3.0.9'
-  s.summary     = 'Enable Spree to work as a Artist Marketplace'
-  s.description = 'TODO: Add (optional) gem description here'
+  s.summary     = 'Artist Marketplace'
+  s.description = 'description '
   s.required_ruby_version = '>= 2.1.0'
 
   s.author    = 'You'
@@ -64,6 +64,7 @@ Gem::Specification.new do |s|
 
   s.add_dependency 'spree_core', '~> 3.0.9'
   s.add_dependency 'spree_artist_drop_ship'
+  s.add_dependency 'spree_greeting'
 
   s.add_development_dependency 'capybara', '~> 2.6'
   s.add_development_dependency 'coffee-rails'
