@@ -1,0 +1,10 @@
+#artist-title h1 { margin-bottom: 5px; font-size: 48px; }
+#artist-location { padding-bottom: 20px; color: #525252;	} 
+#artist-title { 
+										h1 {margin-bottom: 5px; font-size: 48px; } 
+										span { font-size: 18px; } 
+									}
+#artist_profile_picture_field { padding-bottom: 30px; }
+
+#artist-location span.glyphicon.glyphicon-map-marker { margin-left: 10px }
+#artist_left_part { padding-left: 0px; } 

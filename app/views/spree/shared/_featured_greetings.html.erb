@@ -1,0 +1,27 @@
+<% if greetings.any? %>
+		<div id="featured-greetings" class="row">
+		 
+			<% greetings.where(featured: true)[0..7].each do |greeting| %>
+				<% url = greeting_url(greeting, :taxon_id => @taxon.try(:id)) %>
+				
+				<div id="greeting_<%= greeting.id %>" class="col-md-3 col-sm-6 greeting-list-item" data-hook="greetings_list_item" itemscope itemtype="http://schema.org/Greeting">
+				
+					<div class="panel panel-default">
+        			<% cache(@taxon.present? ? [current_currency, @taxon, greeting] : [current_currency, greeting]) do %>
+								
+								<div class="panel-body text-center greeting-body">
+            			<%= link_to small_image(greeting, :itemprop => "image"), greeting, :itemprop => 'url' %>
+				 				</div>
+          			<div class="panel-footer text-center">
+									<%= link_to truncate(greeting.name, :length => 50), greeting, :class => 'info', :itemprop => "name", :title => greeting.name %><br/>
+									<span class="price selling lead" itemprop="price"><%= display_price(greeting) %></span>
+          			</div>
+        			<% end %>
+						</div>
+
+					</div>
+			<% end %>
+
+	</div>
+<% end %>
+

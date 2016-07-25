@@ -1,0 +1,19 @@
+<% if @artist.greetings.any? %>
+	<div id="artist-greetings" class="row" data-hook>
+		<% @artist.greetings.each do |greeting| %>
+		<div id="artist-greeting-<%= greeting.id %>" class="col-md-3 col-sm-6 greeting-list-item" data-hook="greetings-list-item" itemscope itemtype="http://schema.org/greeting">
+			<div class="panel panel-default">
+				<% cache(@taxon.present? ? [current_currency, @taxon, greeting] : [current_currency, greeting]) do %>
+					<div class="panel-body text-center greeting-body">
+					<%= link_to small_image(greeting, :itemprop => "image"), greeting, :itemprop => "url" %>
+					</div>
+					<div class="panel-footer text-center">
+					<%= link_to truncate(greeting.name, :length => 50), greeting, :class => 'info', :itemprop => "name", :title => greeting.name %><br/>
+					<span class="price selling lead" itemprop="price"><%= display_price(greeting) %> </span>
+					</div>
+				<% end %>
+			</div>
+		</div>
+		<% end %>
+	</div>
+<% end %>
